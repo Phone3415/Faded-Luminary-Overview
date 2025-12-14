@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faded Luminary</title>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/static/assets/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/assets/favicon-16x16.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&family=Kanit:wght@300;400;500;600;700;800&family=Prompt:wght@300;400;500;600;700;800&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="manifest" href="/static/assets/site.webmanifest" />
+
+    <style>
+      :root {
+        --white: #fff;
+        --white-subtle: hsl(0, 0%, 95%);
+        --black: hsl(0, 0%, 12.5%);
+
+        --item-icon-shadow: drop-shadow(0 0 8px rgba(0, 0, 0, 0.35));
+        --box-shadow: 0px 4px 16px 8px rgba(0, 0, 0, 0.1);
+
+        --text-black: #000;
+        --text-white: hsl(0, 0%, 90%);
+        --text-mute: hsl(0, 0%, 30%);
+        --text-mute-light: hsl(0, 0%, 40%);
+
+        --font-family: "Prompt", "Noto Sans Thai", "Kanit", sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+
+        -webkit-tap-highlight-color: transparent !important;
+
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100vw;
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: flex-start;
+        align-items: center;
+
+        font-family: var(--font-family);
+
+        background: var(--white);
+        color: var(--text-black);
+
+        overflow-x: clip;
+      }
+
+      header {
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 0.5rem;
+
+        width: 100%;
+        padding: 3rem;
+
+        background-color: var(--black);
+        color: var(--text-white);
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+      }
+
+      header p {
+        font-size: 1.25rem;
+        color: var(--text-mute-light);
+
+        text-align: center;
+
+        display: flex;
+
+        flex-wrap: wrap;
+        flex: 1;
+
+        gap: 0.5rem;
+      }
+
+      main {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .fact {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 0.675rem;
+
+        padding: 2rem;
+        font-size: 1rem;
+
+        background: var(--white-subtle);
+        color: var(--text-mute);
+      }
+
+      .fact .title {
+        font-size: 1.5rem;
+        color: var(--text-black);
+
+        text-align: center;
+      }
+
+      .fact .content {
+        display: flex;
+        flex-direction: column;
+
+        flex-wrap: wrap;
+        flex: 1;
+
+        gap: 0.75rem;
+      }
+
+      .highlight-features {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 0.75rem;
+
+        background: var(--white);
+        color: var(--text-black);
+      }
+
+      .highlight-features .title {
+        font-size: 1.8rem;
+      }
+
+      .highlight-features .features-grid {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: repeat(2, minmax(8rem, 16rem));
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 0.75rem;
+        padding: 0.5rem;
+      }
+
+      .highlight-features .feature {
+        display: flex;
+        flex-direction: column;
+
+        justify-content: flex-start;
+        align-items: center;
+
+        padding: 0.75rem;
+
+        background: var(--white-subtle);
+        aspect-ratio: 1 / 1;
+
+        border-radius: 16px;
+        -webkit-box-shadow: var(--box-shadow);
+        box-shadow: var(--box-shadow);
+
+        overflow: hidden;
+
+        transition: transform 300ms ease-in-out;
+      }
+
+      .highlight-features .feature:hover,
+      .highlight-features .feature:active {
+        transform: scale(1.05);
+      }
+
+      .feature .icon {
+        width: 45%;
+      }
+
+      .feature .icon img {
+        width: 100%;
+        image-rendering: pixelated;
+
+        filter: var(--item-icon-shadow);
+      }
+
+      .feature .title {
+        font-size: 1.25rem;
+        font-weight: 400;
+
+        text-align: center;
+      }
+
+      .feature .content {
+        font-size: 0.95rem;
+        color: var(--text-mute);
+      }
+
+      .tutorial {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 0.5rem;
+
+        background: var(--white-subtle);
+      }
+
+      .tutorial > .title {
+        padding: 0.5rem;
+
+        font-size: 1.4rem;
+        font-weight: 500;
+
+        text-align: center;
+      }
+
+      .tutorial .container {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .tutorial .item {
+        width: 80%;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 0.625rem;
+      }
+
+      .tutorial .item .title {
+        font-size: 1.25rem;
+        text-align: center;
+      }
+
+      .tutorial .item .main-image {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        padding: 0.5rem;
+
+        background: var(--white);
+        border-radius: 16px;
+
+        box-shadow: var(--box-shadow);
+        -webkit-box-shadow: var(--box-shadow);
+      }
+
+      .tutorial .item .image-box {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .tutorial .item .item-icon {
+        position: relative;
+        align-self: flex-start;
+
+        width: 20%;
+        aspect-ratio: 1 / 1;
+
+        padding: 0.25rem;
+
+        background: var(--white);
+        border-radius: 12px;
+
+        box-shadow: var(--box-shadow);
+        -webkit-box-shadow: var(--box-shadow);
+
+        overflow: hidden;
+
+        transition: transform 300ms ease-in-out;
+      }
+
+      .tutorial .item .item-icon::after {
+        content: "ไอค่อนของไอเท็ม";
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background: rgba(255, 255, 255, 0.85);
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+        color: var(--text-black);
+        font-size: 0.75rem;
+
+        opacity: 0;
+
+        transition: opacity 300ms ease-in-out;
+      }
+
+      .tutorial .item .item-icon:hover:after,
+      .tutorial .item .item-icon:active:after {
+        opacity: 1;
+      }
+
+      .tutorial .item-icon img {
+        width: 100%;
+
+        image-rendering: pixelated;
+        filter: var(--item-icon-shadow);
+      }
+
+      .tutorial .item .item-icon:hover,
+      .tutorial .item .item-icon:active {
+        transform: scale(1.05);
+      }
+
+      .tutorial .item img {
+        width: 100%;
+      }
+
+      .tutorial .item .description {
+        align-self: flex-start;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 0.25rem;
+
+        color: var(--text-mute);
+      }
+
+      .tutorial .item .hightlight {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 0.5rem;
+        border-radius: 12px;
+
+        text-shadow: var(--box-shadow);
+
+        background: var(--black);
+        color: var(--text-white);
+
+        transition: all 300ms ease-in-out;
+      }
+
+      .tutorial .item .hightlight:hover,
+      .tutorial .item .hightlight:active {
+        transform: scale(1.025);
+      }
+
+      @media (min-width: 768px) {
+        .fact {
+          font-size: 1.25rem;
+        }
+
+        .fact .title {
+          font-size: 1.75rem;
+        }
+
+        .highlight-features .features-grid {
+          grid-template-columns: repeat(auto-fit, minmax(8rem, 16rem));
+
+          padding: 1.5rem;
+          gap: 2rem;
+        }
+
+        .feature .icon {
+          width: 60%;
+        }
+
+        .feature .title {
+          font-size: 1.5rem;
+        }
+
+        .feature .content {
+          font-size: 1.15rem;
+        }
+
+        .tutorial > .title {
+          font-size: 1.55rem;
+        }
+
+        .tutorial .container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .tutorial .item {
+          justify-self: center;
+
+          width: 80%;
+          padding: 1rem;
+          gap: 1rem;
+        }
+
+        .tutorial .item .title {
+          font-size: 1.5rem;
+        }
+
+        .tutorial .item .main-image {
+          width: 100%;
+          padding: 1rem;
+        }
+
+        .tutorial .item .item-icon {
+          width: 15%;
+        }
+
+        .tutorial .item .item-icon::after {
+          font-size: 1rem;
+        }
+
+        .tutorial .item .description {
+          font-size: 1.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Faded Luminary</h1>
+      <p>
+        <span>Add-On สำหรับโรลเพลย์</span>
+        <span>ปรับแต่งได้สูง</span>
+        <span>ฟีเจอร์เยอะครบจบ</span>
+        <span>ประสิทธิภาพสูง</span>
+        <span>ดาวน์โหลดได้ฟรี</span>
+      </p>
+    </header>
+
+    <main>
+      <section class="fact">
+        <p class="title">รู้หรือไม่?</p>
+
+        <p class="content">
+          <span>
+            เริ่มแรก Faded Luminary
+            เป็นแค่โปรเจคที่ทำมาเพื่อก่อกวนร้านอื่นเท่านั้น
+          </span>
+          <span>
+            โดยเริ่มต้นจากการที่อยากหักหน้าร้านที่นำ Add-On แบบนี้มาขาย
+          </span>
+          <span>
+            Star Store จึงได้ตัดสินใจแจกฟรีและทำให้ครบจบใน Add-On เดียว
+          </span>
+        </p>
+      </section>
+
+      <section class="highlight-features">
+        <p class="title">ฟีเจอร์เด่น</p>
+
+        <section class="features-grid">
+          <div class="feature">
+            <div class="icon">
+              <img src="/static/assets/items/carry_player.png" />
+            </div>
+
+            <p class="title">การอุ้ม</p>
+            <p class="content">สามารถอุ้มผู้เล่นคนอื่นๆ ได้</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">
+              <img src="/static/assets/items/revive.png" />
+            </div>
+
+            <p class="title">ล้มและชุบชีวิต</p>
+            <p class="content">ผู้เล่นสามารถล้มและชุบกันได้</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">
+              <img src="/static/assets/items/scale.png" />
+            </div>
+
+            <p class="title">ปรับขนาดตัว</p>
+            <p class="content">ปรับขนาดตัวได้ตั้งแต่ 0 - 500</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">
+              <img src="/static/assets/items/faded_settings.png" />
+            </div>
+
+            <p class="title">การตั้งค่า</p>
+            <p class="content">ตั้งค่าระบบต่างๆ ได้ภายในตัวเกม</p>
+          </div>
+        </section>
+      </section>
+
+      <section class="tutorial">
+        <p class="title">วิธีการใช้งาน</p>
+
+        <section class="container">
+          <section class="item">
+            <p class="title">การอุ้ม</p>
+
+            <div class="main-image">
+              <div class="image-box">
+                <img
+                  src="https://www.atlasandboots.com/wp-content/uploads/2019/05/ama-dablam2-most-beautiful-mountains-in-the-world.jpg"
+                />
+              </div>
+            </div>
+
+            <div class="item-icon">
+              <img src="/static/assets/items/carry_player.png" />
+            </div>
+
+            <div class="description">
+              <p>
+                ใช้งานไอเท็มอุ้มเพื่ออุ้มผู้เล่นใกล้เคียงหรือใช้มือเปล่าและคลิกขวาหรือกดค้างที่ผู้เล่นคนนั้น
+              </p>
+              <p>หากย่อและใช้งานไอเท็มจะเปิดเมนูการตั้งค่าการอุ้ม</p>
+            </div>
+          </section>
+
+          <section class="item">
+            <p class="title">ล้มและชุบชีวิต</p>
+
+            <div class="main-image">
+              <div class="image-box">
+                <img
+                  src="https://www.atlasandboots.com/wp-content/uploads/2019/05/ama-dablam2-most-beautiful-mountains-in-the-world.jpg"
+                />
+              </div>
+            </div>
+
+            <div class="item-icon">
+              <img src="/static/assets/items/revive.png" />
+            </div>
+
+            <div class="description">
+              <p>
+                เมื่อผู้เล่นเลือดเหลือตามที่กำหนด ( ค่าเริ่มต้น 5 หน่วย )
+                จะส่งผลให้ผู้เล่นคนนั้นล้มและไม่สามารถขยับตัวได้
+              </p>
+              <p>
+                สามารถใช้ไอเท็มชุดปฐมพยาบาลหรือให้ผู้เล่นอื่นใช้ให้เพื่อชุบและเพิ่มเลือด
+              </p>
+            </div>
+          </section>
+
+          <section class="item">
+            <p class="title">ปรับขนาดตัว</p>
+
+            <div class="main-image">
+              <div class="image-box">
+                <img
+                  src="https://www.atlasandboots.com/wp-content/uploads/2019/05/ama-dablam2-most-beautiful-mountains-in-the-world.jpg"
+                />
+              </div>
+            </div>
+
+            <div class="item-icon">
+              <img src="/static/assets/items/scale.png" />
+            </div>
+
+            <div class="description">
+              <p>สามารถปรับขนาดตัวได้ตั้งแต่ 0 - 500 ( ทศนิยม 1 หลัก )</p>
+              <p>ขนาดตัวจะอยู่ในหน่วยเซนติเมตรหรือ 1 ใน 10 ของ 1 บล็อก</p>
+            </div>
+          </section>
+
+          <section class="item">
+            <p class="title">การตั้งค่า</p>
+
+            <div class="main-image">
+              <div class="image-box">
+                <img
+                  src="https://www.atlasandboots.com/wp-content/uploads/2019/05/ama-dablam2-most-beautiful-mountains-in-the-world.jpg"
+                />
+              </div>
+            </div>
+
+            <div class="item-icon">
+              <img src="/static/assets/items/faded_settings.png" />
+            </div>
+
+            <div class="description">
+              <p>
+                สามารถตั้งค่าฟีเจอร์และรายละเอียดของฟีเจอร์ต่างๆ ได้ผ่านหน้า Ui
+              </p>
+            </div>
+          </section>
+
+          <section class="item">
+            <p class="title">ถอดมุมมอง</p>
+
+            <div class="main-image">
+              <div class="image-box">
+                <img
+                  src="https://www.atlasandboots.com/wp-content/uploads/2019/05/ama-dablam2-most-beautiful-mountains-in-the-world.jpg"
+                />
+              </div>
+            </div>
+
+            <div class="item-icon">
+              <img src="/static/assets/items/free_camera.png" />
+            </div>
+
+            <div class="description">
+              <p>กดใช้งานไอเท็มถอดมุมองเพื่อเปิด Ui ถอดมุมมอง</p>
+              <p>เมื่อถอดมุมมอง สามารถขยับมุมมองได้ผ่านการเดิน กระโดดและย่อ</p>
+            </div>
+          </section>
+
+          <section class="item">
+            <p class="title">ชื่อลอย</p>
+
+            <div class="main-image">
+              <div class="image-box">
+                <img
+                  src="https://www.atlasandboots.com/wp-content/uploads/2019/05/ama-dablam2-most-beautiful-mountains-in-the-world.jpg"
+                />
+              </div>
+            </div>
+
+            <div class="item-icon">
+              <img src="/static/assets/items/floating_name.png" />
+            </div>
+
+            <div class="description">
+              <p>กดใช้งานไอเท็มชื่อลอยเพื่อเปิด Ui สร้างชื่อลอย</p>
+              <p>ชื่อลอยสามารถใส่ข้อความได้สูงสุด 1000 ตัวอักษร</p>
+              <p>
+                ย่อและใช้งานไอเท็มเพื่อเปิด Ui ลบชื่อลอยที่อยู่ใกล้ที่สุด (
+                อยู่ห่างจากชื่อลอยได้มากสุด 3 บล็อก )
+              </p>
+            </div>
+          </section>
+
+          <section class="item">
+            <p class="title">ตั้งค่าชื่อ</p>
+
+            <div class="main-image">
+              <div class="image-box">
+                <img
+                  src="https://www.atlasandboots.com/wp-content/uploads/2019/05/ama-dablam2-most-beautiful-mountains-in-the-world.jpg"
+                />
+              </div>
+            </div>
+
+            <div class="item-icon">
+              <img src="/static/assets/items/settings_name.png" />
+            </div>
+
+            <div class="description">
+              <p>กดใช้งานไอเท็มตั้งค่าชื่อเพื่อเปิด Ui ตั้งค่าชื่อ</p>
+              <p>
+                ชื่อสามารถตั้งเป็นอะไรก็ได้ สามาระใส่สีหรือรูปแบบพิเศษได้ตามปกติ
+              </p>
+              <p>
+                รูปแบบข้อความ จะมีข้อความที่จะถูกแทนที่
+                โดยในการตั้งค่าจำเป็นต้องมีข้อความเสมอ
+              </p>
+              <p class="hightlight">{name} = ชื่อ</p>
+              <p class="hightlight">{message} = ข้อความ</p>
+            </div>
+          </section>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
