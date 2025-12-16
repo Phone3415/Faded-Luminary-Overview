@@ -1,0 +1,556 @@
+:root {
+  --white: #fff;
+  --white-subtle: hsl(0, 0%, 95%);
+  --black: hsl(0, 0%, 12.5%);
+
+  --item-icon-shadow: drop-shadow(0 0 8px rgba(0, 0, 0, 0.35));
+  --box-shadow: 0px 4px 16px 8px rgba(0, 0, 0, 0.1);
+
+  --text-black: #000;
+  --text-white: hsl(0, 0%, 90%);
+  --text-mute: hsl(0, 0%, 30%);
+  --text-mute-light: hsl(0, 0%, 40%);
+
+  --font-family: "Prompt", "Noto Sans Thai", "Kanit", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  -webkit-tap-highlight-color: transparent !important;
+
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+  align-items: center;
+
+  font-family: var(--font-family);
+
+  background: var(--white);
+  color: var(--text-black);
+
+  overflow-x: clip;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 0.5rem;
+
+  width: 100%;
+  padding: 3rem;
+
+  background-color: var(--black);
+  color: var(--text-white);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+header p {
+  font-size: 1.25rem;
+  color: var(--text-mute-light);
+
+  text-align: center;
+
+  display: flex;
+
+  flex-wrap: wrap;
+  flex: 1;
+
+  gap: 0.5rem;
+}
+
+main {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+code {
+  padding: 0.25rem;
+  background: var(--white);
+  border-radius: 8px;
+
+  box-shadow: var(--box-shadow);
+  -webkit-box-shadow: var(--box-shadow);
+}
+
+.fact {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 0.675rem;
+
+  padding: 2rem;
+  font-size: 1rem;
+
+  background: var(--white-subtle);
+  color: var(--text-mute);
+}
+
+.fact .title {
+  font-size: 1.5rem;
+  color: var(--text-black);
+
+  text-align: center;
+}
+
+.fact .content {
+  display: flex;
+  flex-direction: column;
+
+  flex-wrap: wrap;
+  flex: 1;
+
+  gap: 0.75rem;
+}
+
+.highlight-features {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.75rem;
+
+  background: var(--white);
+  color: var(--text-black);
+}
+
+.highlight-features .title {
+  font-size: 1.8rem;
+}
+
+.highlight-features .features-grid {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(8rem, 16rem));
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 0.75rem;
+  padding: 0.5rem;
+}
+
+.highlight-features .feature {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 0.75rem;
+
+  background: var(--white-subtle);
+  aspect-ratio: 1 / 1;
+
+  border-radius: 16px;
+  -webkit-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
+
+  overflow: hidden;
+
+  transition: transform 300ms ease-in-out;
+}
+
+.highlight-features .feature:hover,
+.highlight-features .feature:active {
+  transform: scale(1.05);
+}
+
+.feature .icon {
+  width: 45%;
+}
+
+.feature .icon img {
+  width: 100%;
+  image-rendering: pixelated;
+
+  filter: var(--item-icon-shadow);
+}
+
+.feature .title {
+  font-size: 1.25rem;
+  font-weight: 400;
+
+  text-align: center;
+}
+
+.feature .content {
+  font-size: 0.95rem;
+  color: var(--text-mute);
+}
+
+.tutorial {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.5rem;
+
+  background: var(--white-subtle);
+}
+
+.tutorial > .title {
+  padding: 0.5rem;
+
+  font-size: 1.4rem;
+  font-weight: 500;
+
+  text-align: center;
+}
+
+.tutorial .container {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.tutorial .item {
+  width: 80%;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 0.625rem;
+}
+
+.tutorial .item .title {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.tutorial .item .main-image {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  padding: 0.5rem;
+
+  background: var(--white);
+  border-radius: 16px;
+
+  box-shadow: var(--box-shadow);
+  -webkit-box-shadow: var(--box-shadow);
+}
+
+.tutorial .item .image-box {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tutorial .item .item-icon {
+  position: relative;
+  align-self: flex-start;
+
+  width: 20%;
+  aspect-ratio: 1 / 1;
+
+  padding: 0.25rem;
+
+  background: var(--white);
+  border-radius: 12px;
+
+  box-shadow: var(--box-shadow);
+  -webkit-box-shadow: var(--box-shadow);
+
+  overflow: hidden;
+
+  transition: transform 300ms ease-in-out;
+}
+
+.tutorial .item .item-icon::after {
+  content: "ไอค่อนของไอเท็ม";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.85);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  color: var(--text-black);
+  font-size: 0.75rem;
+
+  opacity: 0;
+
+  transition: opacity 300ms ease-in-out;
+}
+
+.tutorial .item .item-icon:hover:after,
+.tutorial .item .item-icon:active:after {
+  opacity: 1;
+}
+
+.tutorial .item-icon img {
+  width: 100%;
+
+  image-rendering: pixelated;
+  filter: var(--item-icon-shadow);
+}
+
+.tutorial .item .item-icon:hover,
+.tutorial .item .item-icon:active {
+  transform: scale(1.05);
+}
+
+.tutorial .item img {
+  width: 100%;
+}
+
+.tutorial .item .description {
+  align-self: flex-start;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.25rem;
+
+  color: var(--text-mute);
+}
+
+.tutorial .item .hightlight {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.5rem;
+  border-radius: 12px;
+
+  text-shadow: var(--box-shadow);
+
+  background: var(--black);
+  color: var(--text-white);
+
+  transition: all 300ms ease-in-out;
+}
+
+.tutorial .item .hightlight:hover,
+.tutorial .item .hightlight:active {
+  transform: scale(1.025);
+}
+
+.changelog {
+  width: 90%;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  background: var(--white);
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.changelog > .title {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.changelog .version {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.25rem;
+}
+
+.changelog .version > .title {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+
+  padding: 0.5rem;
+}
+
+.changelog .version .content,
+.changelog .version .content div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.25rem;
+}
+
+.changelog .version .content a {
+  text-decoration: underline;
+}
+
+.changelog .version .content .spacer {
+  height: 1rem;
+}
+
+.changelog .version .version-name {
+  font-size: 1.05rem;
+  font-weight: 500;
+
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .fact {
+    font-size: 1.25rem;
+  }
+
+  .fact .title {
+    font-size: 1.75rem;
+  }
+
+  .highlight-features .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 16rem));
+
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .feature .icon {
+    width: 60%;
+  }
+
+  .feature .title {
+    font-size: 1.5rem;
+  }
+
+  .feature .content {
+    font-size: 1.15rem;
+  }
+
+  .tutorial > .title {
+    font-size: 1.55rem;
+  }
+
+  .tutorial .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tutorial .item {
+    justify-self: center;
+
+    width: 80%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .tutorial .item .title {
+    font-size: 1.5rem;
+  }
+
+  .tutorial .item .main-image {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .tutorial .item .item-icon {
+    width: 15%;
+  }
+
+  .tutorial .item .item-icon::after {
+    font-size: 1rem;
+  }
+
+  .tutorial .item .description {
+    font-size: 1.3rem;
+  }
+
+  .changelog {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .changelog > .title {
+    font-size: 2rem;
+    padding: 0.5rem;
+  }
+
+  .changelog .version {
+    gap: 1rem;
+  }
+
+  .changelog .version > .title {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  .changelog .version .content,
+  .changelog .version .content div {
+    font-size: 1.25rem;
+  }
+  .changelog .version .content .spacer {
+    height: 1.5rem;
+  }
+
+  .changelog .version .version-name {
+    font-size: 1.35rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}

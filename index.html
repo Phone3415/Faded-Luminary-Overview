@@ -31,467 +31,10 @@
     />
 
     <link rel="manifest" href="/static/assets/site.webmanifest" />
-
-    <style>
-      :root {
-        --white: #fff;
-        --white-subtle: hsl(0, 0%, 95%);
-        --black: hsl(0, 0%, 12.5%);
-
-        --item-icon-shadow: drop-shadow(0 0 8px rgba(0, 0, 0, 0.35));
-        --box-shadow: 0px 4px 16px 8px rgba(0, 0, 0, 0.1);
-
-        --text-black: #000;
-        --text-white: hsl(0, 0%, 90%);
-        --text-mute: hsl(0, 0%, 30%);
-        --text-mute-light: hsl(0, 0%, 40%);
-
-        --font-family: "Prompt", "Noto Sans Thai", "Kanit", sans-serif;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-
-        -webkit-tap-highlight-color: transparent !important;
-
-        box-sizing: border-box;
-      }
-
-      body {
-        width: 100vw;
-        height: 100vh;
-
-        display: flex;
-        flex-direction: column;
-
-        justify-content: flex-start;
-        align-items: center;
-
-        font-family: var(--font-family);
-
-        background: var(--white);
-        color: var(--text-black);
-
-        overflow-x: clip;
-      }
-
-      header {
-        display: flex;
-        flex-direction: column;
-
-        justify-content: center;
-        align-items: center;
-
-        gap: 0.5rem;
-
-        width: 100%;
-        padding: 3rem;
-
-        background-color: var(--black);
-        color: var(--text-white);
-      }
-
-      header h1 {
-        font-size: 2.5rem;
-        font-weight: 600;
-      }
-
-      header p {
-        font-size: 1.25rem;
-        color: var(--text-mute-light);
-
-        text-align: center;
-
-        display: flex;
-
-        flex-wrap: wrap;
-        flex: 1;
-
-        gap: 0.5rem;
-      }
-
-      main {
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-
-        justify-content: flex-start;
-        align-items: center;
-      }
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-
-      .fact {
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        gap: 0.675rem;
-
-        padding: 2rem;
-        font-size: 1rem;
-
-        background: var(--white-subtle);
-        color: var(--text-mute);
-      }
-
-      .fact .title {
-        font-size: 1.5rem;
-        color: var(--text-black);
-
-        text-align: center;
-      }
-
-      .fact .content {
-        display: flex;
-        flex-direction: column;
-
-        flex-wrap: wrap;
-        flex: 1;
-
-        gap: 0.75rem;
-      }
-
-      .highlight-features {
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-
-        justify-content: center;
-        align-items: center;
-
-        padding: 0.75rem;
-
-        background: var(--white);
-        color: var(--text-black);
-      }
-
-      .highlight-features .title {
-        font-size: 1.8rem;
-      }
-
-      .highlight-features .features-grid {
-        width: 100%;
-
-        display: grid;
-        grid-template-columns: repeat(2, minmax(8rem, 16rem));
-
-        justify-content: center;
-        align-items: center;
-
-        gap: 0.75rem;
-        padding: 0.5rem;
-      }
-
-      .highlight-features .feature {
-        display: flex;
-        flex-direction: column;
-
-        justify-content: flex-start;
-        align-items: center;
-
-        padding: 0.75rem;
-
-        background: var(--white-subtle);
-        aspect-ratio: 1 / 1;
-
-        border-radius: 16px;
-        -webkit-box-shadow: var(--box-shadow);
-        box-shadow: var(--box-shadow);
-
-        overflow: hidden;
-
-        transition: transform 300ms ease-in-out;
-      }
-
-      .highlight-features .feature:hover,
-      .highlight-features .feature:active {
-        transform: scale(1.05);
-      }
-
-      .feature .icon {
-        width: 45%;
-      }
-
-      .feature .icon img {
-        width: 100%;
-        image-rendering: pixelated;
-
-        filter: var(--item-icon-shadow);
-      }
-
-      .feature .title {
-        font-size: 1.25rem;
-        font-weight: 400;
-
-        text-align: center;
-      }
-
-      .feature .content {
-        font-size: 0.95rem;
-        color: var(--text-mute);
-      }
-
-      .tutorial {
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-
-        justify-content: center;
-        align-items: center;
-
-        padding: 0.5rem;
-
-        background: var(--white-subtle);
-      }
-
-      .tutorial > .title {
-        padding: 0.5rem;
-
-        font-size: 1.4rem;
-        font-weight: 500;
-
-        text-align: center;
-      }
-
-      .tutorial .container {
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-
-        justify-content: center;
-        align-items: center;
-
-        gap: 1rem;
-        padding: 1rem;
-      }
-
-      .tutorial .item {
-        width: 80%;
-
-        display: flex;
-        flex-direction: column;
-
-        justify-content: center;
-        align-items: center;
-
-        gap: 0.625rem;
-      }
-
-      .tutorial .item .title {
-        font-size: 1.25rem;
-        text-align: center;
-      }
-
-      .tutorial .item .main-image {
-        display: flex;
-
-        justify-content: center;
-        align-items: center;
-
-        width: 100%;
-        padding: 0.5rem;
-
-        background: var(--white);
-        border-radius: 16px;
-
-        box-shadow: var(--box-shadow);
-        -webkit-box-shadow: var(--box-shadow);
-      }
-
-      .tutorial .item .image-box {
-        display: flex;
-
-        justify-content: center;
-        align-items: center;
-
-        width: 100%;
-
-        border-radius: 12px;
-        overflow: hidden;
-      }
-
-      .tutorial .item .item-icon {
-        position: relative;
-        align-self: flex-start;
-
-        width: 20%;
-        aspect-ratio: 1 / 1;
-
-        padding: 0.25rem;
-
-        background: var(--white);
-        border-radius: 12px;
-
-        box-shadow: var(--box-shadow);
-        -webkit-box-shadow: var(--box-shadow);
-
-        overflow: hidden;
-
-        transition: transform 300ms ease-in-out;
-      }
-
-      .tutorial .item .item-icon::after {
-        content: "ไอค่อนของไอเท็ม";
-
-        position: absolute;
-        top: 0;
-        left: 0;
-
-        width: 100%;
-        height: 100%;
-
-        background: rgba(255, 255, 255, 0.85);
-
-        display: flex;
-
-        justify-content: center;
-        align-items: center;
-
-        text-align: center;
-        color: var(--text-black);
-        font-size: 0.75rem;
-
-        opacity: 0;
-
-        transition: opacity 300ms ease-in-out;
-      }
-
-      .tutorial .item .item-icon:hover:after,
-      .tutorial .item .item-icon:active:after {
-        opacity: 1;
-      }
-
-      .tutorial .item-icon img {
-        width: 100%;
-
-        image-rendering: pixelated;
-        filter: var(--item-icon-shadow);
-      }
-
-      .tutorial .item .item-icon:hover,
-      .tutorial .item .item-icon:active {
-        transform: scale(1.05);
-      }
-
-      .tutorial .item img {
-        width: 100%;
-      }
-
-      .tutorial .item .description {
-        align-self: flex-start;
-
-        display: flex;
-        flex-direction: column;
-
-        gap: 0.25rem;
-
-        color: var(--text-mute);
-      }
-
-      .tutorial .item .hightlight {
-        display: flex;
-
-        justify-content: center;
-        align-items: center;
-
-        padding: 0.5rem;
-        border-radius: 12px;
-
-        text-shadow: var(--box-shadow);
-
-        background: var(--black);
-        color: var(--text-white);
-
-        transition: all 300ms ease-in-out;
-      }
-
-      .tutorial .item .hightlight:hover,
-      .tutorial .item .hightlight:active {
-        transform: scale(1.025);
-      }
-
-      @media (min-width: 768px) {
-        .fact {
-          font-size: 1.25rem;
-        }
-
-        .fact .title {
-          font-size: 1.75rem;
-        }
-
-        .highlight-features .features-grid {
-          grid-template-columns: repeat(auto-fit, minmax(8rem, 16rem));
-
-          padding: 1.5rem;
-          gap: 2rem;
-        }
-
-        .feature .icon {
-          width: 60%;
-        }
-
-        .feature .title {
-          font-size: 1.5rem;
-        }
-
-        .feature .content {
-          font-size: 1.15rem;
-        }
-
-        .tutorial > .title {
-          font-size: 1.55rem;
-        }
-
-        .tutorial .container {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .tutorial .item {
-          justify-self: center;
-
-          width: 80%;
-          padding: 1rem;
-          gap: 1rem;
-        }
-
-        .tutorial .item .title {
-          font-size: 1.5rem;
-        }
-
-        .tutorial .item .main-image {
-          width: 100%;
-          padding: 1rem;
-        }
-
-        .tutorial .item .item-icon {
-          width: 15%;
-        }
-
-        .tutorial .item .item-icon::after {
-          font-size: 1rem;
-        }
-
-        .tutorial .item .description {
-          font-size: 1.3rem;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body>
-    <header>
+    <header id="header">
       <h1>Faded Luminary</h1>
       <p>
         <span>Add-On สำหรับโรลเพลย์</span>
@@ -503,7 +46,7 @@
     </header>
 
     <main>
-      <section class="fact">
+      <section id="fact" class="fact">
         <p class="title">รู้หรือไม่?</p>
 
         <p class="content">
@@ -520,7 +63,7 @@
         </p>
       </section>
 
-      <section class="highlight-features">
+      <section id="feature" class="highlight-features">
         <p class="title">ฟีเจอร์เด่น</p>
 
         <section class="features-grid">
@@ -562,7 +105,7 @@
         </section>
       </section>
 
-      <section class="tutorial">
+      <section id="tutorial" class="tutorial">
         <p class="title">วิธีการใช้งาน</p>
 
         <section class="container">
@@ -633,6 +176,17 @@
             <div class="description">
               <p>สามารถปรับขนาดตัวได้ตั้งแต่ 0 - 500 ( ทศนิยม 1 หลัก )</p>
               <p>ขนาดตัวจะอยู่ในหน่วยเซนติเมตรหรือ 1 ใน 10 ของ 1 บล็อก</p>
+              <p>สามารถใช้งานไอเท็มขนาดตัวเพื่อเปิด Ui สำหรับปรับขนาดตัว</p>
+              <p>
+                หรือสามารถทำได้ผ่านคำสั่ง
+                <code>event</code>
+              </p>
+              <p>
+                ขนาดตัวจะถูกนำหน้าด้วย
+                <code>scale:</code> และขนาดตัวที่มีทศนิยมจะต้องแทน
+                <code>.</code> ด้วย <code>_</code>
+              </p>
+              <p>ตัวอย่างคำสั่ง <code>event entity @s scale:170_8</code></p>
             </div>
           </section>
 
@@ -655,6 +209,12 @@
               <p>
                 สามารถตั้งค่าฟีเจอร์และรายละเอียดของฟีเจอร์ต่างๆ ได้ผ่านหน้า Ui
               </p>
+              <p>- โดยสามารถตั้งค่าได้เกือบทุกอย่าง</p>
+              <p>- การอุ้ม การชุบชีวิต</p>
+              <p>- ขนาดตัวสูงสุดและต่ำสุด</p>
+              <p>- จำนวนเลือดก่อนจะล้ม ข้อความแสดงเวลาขณะล้ม</p>
+              <p>- การแสดงของชื่อ</p>
+              <p>- การใช้งานไอเท็ม</p>
             </div>
           </section>
 
@@ -732,6 +292,265 @@
               <p class="hightlight">{message} = ข้อความ</p>
             </div>
           </section>
+        </section>
+      </section>
+
+      <section id="changelog" class="changelog">
+        <p class="title">บันทึกการเปลี่ยนแปลง</p>
+
+        <section class="version">
+          <p class="title">1.0.0 - Opening Release</p>
+
+          <div class="content">
+            <p class="version-name">เวอร์ชั่นเปิดตัว</p>
+            <p>เผยแพร่ครั้งแรกวันที่ 27 ธันวาคม 2024</p>
+            <p>
+              ผ่านเพจเฟซบุ๊ก Star Store
+              <a href="https://www.facebook.com/share/p/16JqmkUnqE/">สำรวจ</a>
+            </p>
+            <p>
+              เปิดให้ดาวน์โหลดผ่านทางดิสคอร์ด Star Store
+              <a href="https://discord.gg/R6YwSGqftE">สำรวจ</a>
+            </p>
+            <p>
+              ปัจจุบันไม่สามารถดาวน์โหลดได้เนื่องจากปัญหาด้านประสิทธิภาพและความเสถียร
+            </p>
+
+            <div class="spacer"></div>
+            <p>รายละเอียดเวอร์ชั่น</p>
+            <div class="spacer"></div>
+
+            <p>1. ปรับขนาดตัว 0 - 1000 (ทศนิยม 1 หลัก)</p>
+            <p>2. ระบบอุ้ม (เปิด-ปิดได้)</p>
+            <p>3. ระบบล้ม-ชุบ (เปิด-ปิดได้)</p>
+            <p>4. สร้างป้ายลอย (โดน /kill ไม่ตาย)</p>
+            <p>5. ถอดมุมมอง (ใช้คู่กับ Star Polaroid ได้)</p>
+            <p>6. เปิด-ปิดชื่อผู้เล่น</p>
+          </div>
+        </section>
+
+        <section class="version">
+          <p class="title">1.0.1 - Stable Release</p>
+
+          <div class="content">
+            <p class="version-name">เวอร์ชั่นเสถียรและปรับปรุง</p>
+            <p>เผยแพร่ครั้งแรกวันที่ 12 พฤษภาคม 2025</p>
+            <p>
+              ผ่านดิสคอร์ด Star Store
+              <a href="https://discord.gg/R6YwSGqftE">สำรวจ</a>
+            </p>
+            <p>
+              เปิดให้ดาวน์โหลดผ่านทางดิสคอร์ด Star Store
+              <a href="https://discord.gg/R6YwSGqftE">สำรวจ</a>
+            </p>
+            <p>
+              โค้ดทั้งหมดถูก Refactor มาใช้งาน
+              <a href="https://www.typescriptlang.org/">Typescript</a> แทนที่
+              <a href="https://nodejs.org/">Javascript</a>
+            </p>
+            <p>
+              ปัจจุบันไม่สามารถดาวน์โหลดได้เนื่องจากการอัพเดตเวอร์ชั่นที่ใหม่กว่า
+            </p>
+
+            <div class="spacer"></div>
+            <p>รายละเอียดเวอร์ชั่น</p>
+            <div class="spacer"></div>
+
+            <div>
+              1. แก้ไขระบบล้มเกือบยกแผง
+              <p>- เพิ่มข้อความบอกเวลาที่เหลืออยู่</p>
+              <p>- ล้มเมื่อเลือดเหลือตามที่กำหนด</p>
+              <p>- เมื่อชุบไม่ทันเวลาผู้เล่นคนนั้นก็จะเสียชีวิต</p>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div>
+              2. แก้ระบบอุ้มให้เสถียรมากขึ้น
+              <p>- ลดอาการค้างเมื่ออุ้มอีกฝ่ายหรือถูกอุ้ม</p>
+              <p>- การอุ้มสามารถใช้มือเปล่าอุ้มได้ทันที</p>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div>
+              3. ถอดมุมกล้อง
+              <p>- เพิ่มหน้า Ui ให้ใช้งานง่ายมากขึ้น</p>
+              <p>- การควบคุมใช้เดิมตามปกติแทนแค่กระโดดและย่อ</p>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div>
+              4. ขนาดตัว
+              <p>- ลดลิมิตการปรับขนาดตัวเป็น 0 - 500 (จาก 0 - 1000)</p>
+              <p>เพื่อลดความหน่วงในเซิร์ฟเวอร์ขนาดกลางขึ้นไป</p>
+              <p>- สามารถใช้เว็บไซต์เพื่อลดหรือเพิ่มลิมิตได้</p>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div>
+              <p>5. เพิ่มการการตั้งค่า</p>
+              <p>- จำนวนเลือดที่จะเหลือก่อนจะล้ม</p>
+              <p>- ระยะเวลาขณะล้มก่อนจะเสียชีวิต</p>
+              <p>- แก้ไขข้อความที่แสดงขณะล้ม (เปิด - ปิดได้)</p>
+              <p>- ปิด - เปิดไม่ให้ผู้เล่นอุ้มกันได้</p>
+              <p>- จำนวนเลือดที่จะได้รับหลังชุบชีวิต</p>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div>
+              <p>6. Utils</p>
+              <p>- แก้ไขกล่องข้อความขนาดใหญ่กว่าที่ควรเป็นในทุก Ui</p>
+              <p>
+                -
+                ไอเท็มจะไม่ถูกลดในโหมดสร้างสรรค์เมื่อใช้ไอเท็มปรับขนาดตัวหรือชุดปฐมพยาบาล
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="version">
+          <p class="title">1.5.0 - Performace Release Caching and Cacher</p>
+
+          <div class="content">
+            <p class="version-name">เวอร์ชั่นเพิ่มประสิทธิภาพและความเสถียร</p>
+            <p>เผยแพร่ครั้งแรกวันที่ 12 ธันวาคม 2025</p>
+            <p>
+              ผ่านดิสคอร์ด Star Store
+              <a href="https://discord.gg/R6YwSGqftE">สำรวจ</a>
+            </p>
+            <p>
+              เปิดให้ดาวน์โหลดผ่านทางดิสคอร์ด Star Store
+              <a href="https://discord.gg/R6YwSGqftE">สำรวจ</a>
+            </p>
+            <p>
+              โค้ดเกือบทั้งหมดถูก Refactor อีกครั้งเพื่อประสิทธิภาพที่ดีขึ้น
+            </p>
+            <p>ปัจจุบันสามารถดาวน์โหลดได้และเป็นเวอร์ชั่นปัจจุบัน</p>
+
+            <div class="spacer"></div>
+            <p>รายละเอียดเวอร์ชั่น</p>
+            <div class="spacer"></div>
+
+            <div>
+              <p>1. ขนาดตัว</p>
+              <p>- สามารถปรับขนาดตัวผ่านคำสั่งในเกม ( คำอธิบายใต้ล่าง )</p>
+            </div>
+            <div class="spacer"></div>
+
+            <div>
+              <p>2. ล้มและชุบ</p>
+              <p>- สามารถปิดความเสียหายสำหรับผู้ที่ล้ม</p>
+            </div>
+            <div class="spacer"></div>
+
+            <div>
+              <p>3. อุ้ม</p>
+              <p>- เปลี่ยนมาใช้รูปแบบ Cached Statement</p>
+              <p>- ป้องกันการอุ้มซ้อนกันซึ่งส่งผลให้เกมค้างและ Crash</p>
+              <p>- การย่อขณะใช้ไอเท็มอุ้มจะเปิดเมนูตั้งค่า</p>
+            </div>
+            <div class="spacer"></div>
+
+            <div>
+              <p>4. เมนูตั้งค่าการอุ้ม</p>
+              <p>
+                - เปิด/ปิด การอุ้ม ( จะไม่สามารถอุ้มหรือถูกอุ้มได้,
+                สามารถปิดได้ในตั้งค่า )
+              </p>
+              <p>
+                - เปิด/ปิด การเลิกอุ้มเมื่อย่อ (
+                ต้องใช้ไอเท็มในการเลิกอุ้มเท่านั้น )
+              </p>
+            </div>
+            <div class="spacer"></div>
+
+            <div>
+              <p>5. การลบชื่อลอย</p>
+              <p>- เพิ่มเมนูแจ้งเตือนเมื่อไม่พบชื่อลอย</p>
+              <p>- แสดงรายละเอียดของชื่อลอยในเมนูการลบ</p>
+            </div>
+            <div class="spacer"></div>
+
+            <div>
+              <p>6. กล้อง</p>
+              <p>- เปลี่ยนมาใช้รูปแบบ Cache</p>
+              <p>- เมื่อปิดใช้งานจะมีอนิเมชั่นถูกดึงกลับมาที่ส่วนหัว</p>
+            </div>
+            <div class="spacer"></div>
+
+            <div>
+              <p>7. ตั้งค่าชื่อและข้อความ</p>
+              <p>- สามารถตั้งชื่อได้ ( สามารถปิดได้ในตั้งค่า )</p>
+              <p>
+                - สามารถเปลี่ยนรูปแบบข้อความแชทได้ ( สามารถปิดได้ในตั้งค่า )
+              </p>
+            </div>
+            <div class="spacer"></div>
+
+            <div>
+              <p>8. เพิ่มการตั้งค่า</p>
+              <p>- สามารถทำความเสียหายต่อผู้ที่ล้ม ( เปิด - ปิด )</p>
+              <p>- สามารถแก้ไขชื่อได้ ( เปิด - ปิด )</p>
+              <p>- สามารถแก้ไขรูปแบบข้อความได้ ( เปิด - ปิด )</p>
+            </div>
+            <div class="spacer"></div>
+
+            <div>
+              <p>9. ไอเท็ม</p>
+              <p>- ไอเท็มถูกจัดหมวดหมู่รวมกัน</p>
+              <p>
+                - เพิ่มไอเท็ม
+                <code>ชื่อ</code> สำหรับเปิดเมนูตั้งค่าชื่อและข้อความ
+              </p>
+              <p>- แก้ไขไอค่อนของไอเท็มอุ้ม</p>
+              <p>- แก้ไขไอค่อนของไอเท็มถอดมุมมอง</p>
+              <p>- แก้ไขไอค่อนของไอเท็มชุดปฐมพยาบาล</p>
+              <p>- แก้ไขไอค่อนของไอเท็มขนาดตัว</p>
+            </div>
+            <div class="spacer"></div>
+
+            <div>
+              <p>10. Utils</p>
+              <p>- Refactor และเพิ่มระบบ Cache เพื่อประสิทธิภาพที่ดีมากขึ้น</p>
+              <p>
+                - เปลี่ยนมาใช้ Beta Api ( จำเป็นต้องเปิดตั้งค่า Beta API
+                ภายในแมพ )
+              </p>
+            </div>
+            <div class="spacer"></div>
+
+            <div>
+              <p>11. License</p>
+              <p>
+                - มีการเพิ่มไฟล์ <code>LICENSE.txt</code> เพื่อป้องกันการละเมิด
+              </p>
+              <p>- หวังว่าจะไม่มีใครมึนแกะ Add-On แล้วแก้ไขตามใจชอบอีกนะครับ</p>
+              <p>
+                - การแก้ไขสามารถสั่งทำได้ที่ Star Store (
+                ราคาขึ้นอยู่กับรายละเอียด )
+              </p>
+              <p>
+                - หากต้องการแก้ไขด้วยตัวเองสามารถซื้อ Source Code ได้ในราคา
+                1000฿
+              </p>
+            </div>
+            <div class="spacer"></div>
+
+            <div>
+              <p>ปรับขนาดตัวผ่านคำสั่งในเกม</p>
+              <p>- สามารถปรับขนาดตัวได้โดยใช้คำสั่ง <code>event</code></p>
+              <p>- ขนาดตัวจะถูกนำหน้าด้วย <code>scale:</code></p>
+              <p>
+                - ขนาดตัวที่มีทศนิยมจะต้องแทน <code>.</code> ด้วย
+                <code>_</code> ( 180.5 -> 180_5 )
+              </p>
+              <p>- ตัวอย่างคำสั่ง <code>event entity @s scale:130_2</code></p>
+            </div>
+          </div>
         </section>
       </section>
     </main>
