@@ -557,11 +557,6 @@ footer .copyright {
     font-size: 1.55rem;
   }
 
-  .tutorial .container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .tutorial .item {
     justify-self: center;
 
@@ -659,5 +654,12 @@ footer .copyright {
 
   footer .copyright {
     font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tutorial .container {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
   }
 }
