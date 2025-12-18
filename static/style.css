@@ -23,6 +23,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -39,7 +43,6 @@ body {
   color: var(--text-black);
 
   overflow-x: clip;
-  scroll-behavior: smooth;
 }
 
 header {
@@ -608,6 +611,19 @@ nav a p {
   font-size: 1.25rem;
 }
 
+nav a .image-container {
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+nav a .image-container.square {
+  border-radius: 0;
+}
+
+nav a:not(:nth-child(1), :hover, :active) .image-container img {
+  filter: invert(1);
+}
+
 @media (min-width: 768px) {
   .fact {
     font-size: 1.25rem;
@@ -744,22 +760,27 @@ nav a p {
   }
 
   nav {
-    right: 2.5%;
+    position: fixed;
+    right: 0.5%;
     top: 50%;
 
     width: 5%;
     height: max-content;
 
-    transform: translateY(-50%);
+    padding: 0.75rem 0;
 
+    transform: translateY(-50%);
     border-radius: 16px;
 
+    background: var(--black);
+
+    transition: all 250ms ease;
     z-index: 3;
   }
 
   nav.hide {
-    right: 2.5%;
-    width: 5%;
+    right: 0.5%;
+    top: 50%;
   }
 
   nav:hover,
@@ -769,17 +790,41 @@ nav a p {
 
   nav a {
     display: flex;
-    flex-direction: row;
-
+    align-items: center;
     gap: 1rem;
+
+    padding: 0.75rem 1rem;
+    color: var(--white-subtle);
+
+    overflow: hidden;
   }
 
   nav .image-container {
-    width: 100%;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   nav .image-container img {
     width: 100%;
+    display: block;
+  }
+
+  nav a p {
+    opacity: 0;
+    white-space: nowrap;
+    transform: translateX(-6px);
+
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  nav:hover a p,
+  nav:active a p {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
