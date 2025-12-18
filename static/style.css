@@ -592,7 +592,13 @@ nav.hide {
 }
 
 nav a {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
   padding: 1rem;
+
+  color: var(--white-subtle);
 
   transition: all 250ms ease-in-out;
 }
@@ -618,6 +624,21 @@ nav a .image-container {
 
 nav a .image-container.square {
   border-radius: 0;
+}
+
+nav .image-container {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+}
+
+nav .image-container img {
+  width: 100%;
 }
 
 nav a:not(:nth-child(1), :hover, :active) .image-container img {
@@ -761,10 +782,10 @@ nav a:not(:nth-child(1), :hover, :active) .image-container img {
 
   nav {
     position: fixed;
-    right: 0.5%;
+    right: 1%;
     top: 50%;
 
-    width: 5%;
+    width: clamp(5rem, 5%, 10rem);
     height: max-content;
 
     padding: 0.75rem 0;
@@ -779,22 +800,17 @@ nav a:not(:nth-child(1), :hover, :active) .image-container img {
   }
 
   nav.hide {
-    right: 0.5%;
+    right: 1%;
     top: 50%;
   }
 
   nav:hover,
   nav:active {
-    width: 25%;
+    width: clamp(21rem, 25%, 25rem);
   }
 
   nav a {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
     padding: 0.75rem 1rem;
-    color: var(--white-subtle);
 
     overflow: hidden;
   }
@@ -803,9 +819,6 @@ nav a:not(:nth-child(1), :hover, :active) .image-container img {
     width: 40px;
     height: 40px;
     min-width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   nav .image-container img {
