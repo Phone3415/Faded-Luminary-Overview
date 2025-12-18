@@ -39,6 +39,7 @@ body {
   color: var(--text-black);
 
   overflow-x: clip;
+  scroll-behavior: smooth;
 }
 
 header {
@@ -55,6 +56,8 @@ header {
 
   background-color: var(--black);
   color: var(--text-white);
+
+  z-index: 2;
 }
 
 header h1 {
@@ -525,6 +528,86 @@ footer .copyright {
   font-size: 1rem;
 }
 
+.nav-btn {
+  position: fixed;
+  top: 5%;
+  right: 2.5%;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 12.5%;
+  aspect-ratio: 1 / 1;
+
+  gap: 0.25rem;
+  padding: 0.5rem;
+
+  background: var(--black);
+  border-radius: 8px;
+
+  transition: right 200ms ease-in-out;
+
+  z-index: 1;
+}
+
+.nav-btn.hide {
+  right: -100%;
+}
+
+.nav-btn div {
+  width: 100%;
+  height: 2px;
+
+  background: var(--white-subtle);
+  border-radius: 16px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--black);
+  color: var(--white);
+
+  transition: all 200ms ease-in-out;
+
+  z-index: 1;
+}
+
+nav.hide {
+  right: 100%;
+}
+
+nav a {
+  padding: 1rem;
+
+  transition: all 250ms ease-in-out;
+}
+
+nav a:hover,
+nav a:active {
+  background: var(--white);
+  color: var(--text-black);
+}
+
+nav a:nth-child(1) p {
+  font-size: 2rem;
+}
+
+nav a p {
+  font-size: 1.25rem;
+}
+
 @media (min-width: 768px) {
   .fact {
     font-size: 1.25rem;
@@ -654,6 +737,49 @@ footer .copyright {
 
   footer .copyright {
     font-size: 1.25rem;
+  }
+
+  .nav-btn {
+    display: none;
+  }
+
+  nav {
+    right: 2.5%;
+    top: 50%;
+
+    width: 5%;
+    height: max-content;
+
+    transform: translateY(-50%);
+
+    border-radius: 16px;
+
+    z-index: 3;
+  }
+
+  nav.hide {
+    right: 2.5%;
+    width: 5%;
+  }
+
+  nav:hover,
+  nav:active {
+    width: 25%;
+  }
+
+  nav a {
+    display: flex;
+    flex-direction: row;
+
+    gap: 1rem;
+  }
+
+  nav .image-container {
+    width: 100%;
+  }
+
+  nav .image-container img {
+    width: 100%;
   }
 }
 
